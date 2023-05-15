@@ -8,7 +8,10 @@ const Calendar = ({ date, setDate, months }) => {
   const [nextMonth, setNextMonth] = useState(
     new Date(date.getFullYear(), date.getMonth() + 1, date.getDate())
   );
-  const [selectedDays, setSelectedDays] = useState([]);
+  const [startEnd, setStartEnd] = useState({
+    start: null,
+    end: null,
+  });
   const changeMonth = (e) => {
     if (e.target.parentElement.id === "prev") {
       setDate(
@@ -28,7 +31,7 @@ const Calendar = ({ date, setDate, months }) => {
     );
     // eslint-disable-next-line
   }, [date.getMonth()]);
-  console.log(selectedDays);
+
   return (
     <div className={styles.container}>
       <div className={styles.buttons}>
@@ -44,16 +47,16 @@ const Calendar = ({ date, setDate, months }) => {
       <div className={styles.year}>{date.getFullYear()}</div>
       <div className={styles.cals}>
         <LeftCal
-          selectedDays={selectedDays}
-          setSelectedDays={setSelectedDays}
           months={months}
           date={nextMonth}
+          startEnd={startEnd}
+          setStartEnd={setStartEnd}
         />
         <RightCal
-          selectedDays={selectedDays}
-          setSelectedDays={setSelectedDays}
           months={months}
           date={thisMonth}
+          startEnd={startEnd}
+          setStartEnd={setStartEnd}
         />
       </div>
     </div>

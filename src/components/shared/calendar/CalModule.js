@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CalModule.module.css";
 import Day from "./Day";
+import { isBetween } from "../functions";
 
-const CalModule = ({ date, months, selectedDays, setSelectedDays }) => {
+const CalModule = ({
+  date,
+  months,
+  selectedDays,
+  setSelectedDays,
+  startEnd,
+  setStartEnd,
+}) => {
   const [days, setDays] = useState([]);
 
   const thisMonthsDaysNum = new Date(
@@ -16,16 +24,18 @@ const CalModule = ({ date, months, selectedDays, setSelectedDays }) => {
     thisMonthsDays.push({
       id: i,
       dayNum: i,
-      fullDate: new Date(date.getFullYear(), date.getMonth(), i).toString(),
+      fullDate: new Date(date.getFullYear(), date.getMonth(), i),
       notes: [],
       selected:
-        selectedDays.findIndex(
-          (item) =>
-            item.fullDate ===
-            new Date(date.getFullYear(), date.getMonth(), i).toString()
-        ) === -1
-          ? false
-          : true,
+        isBetween(
+          new Date(date.getFullYear(), date.getMonth(), i),
+          startEnd.start,
+          startEnd.end
+        ) ||
+        new Date(date.getFullYear(), date.getMonth(), i).getTime() ===
+          startEnd.start?.getTime()
+          ? true
+          : false,
       today:
         date.getDate() === i && date.getMonth() === new Date().getMonth()
           ? true
@@ -63,8 +73,8 @@ const CalModule = ({ date, months, selectedDays, setSelectedDays }) => {
 
     // eslint-disable-next-line
   }, [date.getMonth()]);
-  //   console.log(days);
-  console.log(selectedDays);
+
+  console.log(days);
 
   return (
     <div className={styles.days}>
@@ -91,11 +101,11 @@ const CalModule = ({ date, months, selectedDays, setSelectedDays }) => {
         {days.map((day) => (
           <Day
             key={day.id}
-            selectedDays={selectedDays}
-            setSelectedDays={setSelectedDays}
             day={day}
             days={days}
             setDays={setDays}
+            setStartEnd={setStartEnd}
+            startEnd={startEnd}
           />
         ))}
         {/* { next month's days} */}

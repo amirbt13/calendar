@@ -1,13 +1,13 @@
 import React from "react";
 import CalModule from "../../shared/calendar/CalModule";
 
-const LeftCal = ({ date, months, selectedDays, setSelectedDays }) => {
+const LeftCal = ({ date, months, startEnd, setStartEnd }) => {
   return (
     <CalModule
       months={months}
       date={date}
-      selectedDays={selectedDays}
-      setSelectedDays={setSelectedDays}
+      startEnd={startEnd}
+      setStartEnd={setStartEnd}
     />
   );
 };
