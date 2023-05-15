@@ -1,0 +1,13 @@
+.container header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.container header div {
+  font-size: 1.2rem;
+  color: rgb(16, 76, 229);
+  font-weight: 600;
+  cursor: pointer;
+}

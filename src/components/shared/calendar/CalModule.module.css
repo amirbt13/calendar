@@ -1,0 +1,52 @@
+.days {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.days .month {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.week_days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 10px;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.week_days div {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.number_divs {
+  margin: 15px 0px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 10px;
+  row-gap: 0px;
+}
+
+.number_divs div {
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.days .today {
+  background-color: rgb(83, 129, 229);
+  color: #eee;
+  border-radius: 50%;
+}
+.selected {
+  background-color: rgb(44, 86, 225);
+  color: #eee;
+}
+
+.prev_days,
+.next_days {
+  opacity: 0.35;
+}
