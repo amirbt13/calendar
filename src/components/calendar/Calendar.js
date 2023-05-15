@@ -31,7 +31,7 @@ const Calendar = ({ date, setDate, months }) => {
     );
     // eslint-disable-next-line
   }, [date.getMonth()]);
-
+  console.log(startEnd);
   return (
     <div className={styles.container}>
       <div className={styles.buttons}>

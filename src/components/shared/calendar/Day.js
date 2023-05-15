@@ -37,7 +37,7 @@ const Day = ({ day, days, setDays, startEnd, setStartEnd }) => {
       onClick={changeDay}
       className={
         selected && today
-          ? styles.selected && styles.today
+          ? styles.selected_today
           : selected
           ? styles.selected
           : today

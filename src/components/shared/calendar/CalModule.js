@@ -74,8 +74,6 @@ const CalModule = ({
     // eslint-disable-next-line
   }, [date.getMonth()]);
 
-  console.log(days);
-
   return (
     <div className={styles.days}>
       <div className={styles.month}>
