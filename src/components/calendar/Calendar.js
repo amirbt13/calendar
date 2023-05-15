@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Calendar.module.css";
-import RightCal from "./right/RightCal";
-import LeftCal from "./left/LeftCal";
+import CalModule from "../shared/calendar/CalModule";
 
-const Calendar = ({ date, setDate, months }) => {
+const Calendar = ({ date, setDate }) => {
   const [thisMonth, setThisMonth] = useState(date);
   const [nextMonth, setNextMonth] = useState(
     new Date(date.getFullYear(), date.getMonth() + 1, date.getDate())
@@ -12,6 +11,21 @@ const Calendar = ({ date, setDate, months }) => {
     start: null,
     end: null,
   });
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   const changeMonth = (e) => {
     if (e.target.parentElement.id === "prev") {
       setDate(
@@ -46,13 +60,13 @@ const Calendar = ({ date, setDate, months }) => {
       </div>
       <div className={styles.year}>{date.getFullYear()}</div>
       <div className={styles.cals}>
-        <LeftCal
+        <CalModule
           months={months}
           date={nextMonth}
           startEnd={startEnd}
           setStartEnd={setStartEnd}
         />
-        <RightCal
+        <CalModule
           months={months}
           date={thisMonth}
           startEnd={startEnd}
