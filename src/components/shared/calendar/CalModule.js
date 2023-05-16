@@ -3,14 +3,7 @@ import styles from "./CalModule.module.css";
 import Day from "./Day";
 import { isBetween } from "../functions";
 
-const CalModule = ({
-  date,
-  months,
-  selectedDays,
-  setSelectedDays,
-  startEnd,
-  setStartEnd,
-}) => {
+const CalModule = ({ date, months, startEnd, setStartEnd }) => {
   const [days, setDays] = useState([]);
 
   const thisMonthsDaysNum = new Date(
@@ -25,7 +18,6 @@ const CalModule = ({
       id: i,
       dayNum: i,
       fullDate: new Date(date.getFullYear(), date.getMonth(), i),
-      notes: [],
       selected:
         isBetween(
           new Date(date.getFullYear(), date.getMonth(), i),

@@ -2,15 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./Calendar.module.css";
 import CalModule from "../shared/calendar/CalModule";
 
-const Calendar = ({ date, setDate }) => {
+const Calendar = ({ date, setDate, startEnd, setStartEnd }) => {
   const [thisMonth, setThisMonth] = useState(date);
   const [nextMonth, setNextMonth] = useState(
     new Date(date.getFullYear(), date.getMonth() + 1, date.getDate())
   );
-  const [startEnd, setStartEnd] = useState({
-    start: null,
-    end: null,
-  });
+
   const months = [
     "January",
     "February",
@@ -45,7 +42,7 @@ const Calendar = ({ date, setDate }) => {
     );
     // eslint-disable-next-line
   }, [date.getMonth()]);
-  console.log(startEnd);
+
   return (
     <div className={styles.container}>
       <div className={styles.buttons}>

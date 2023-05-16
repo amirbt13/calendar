@@ -37,7 +37,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.today {
+.days .today {
   background-color: rgb(83, 129, 229);
   color: #eee;
   border-radius: 50%;
@@ -51,7 +51,6 @@
   background-color: rgb(79, 161, 79);
   color: #eee;
 }
-
 .prev_days,
 .next_days {
   opacity: 0.35;
