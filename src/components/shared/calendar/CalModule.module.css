@@ -36,6 +36,7 @@
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 5px;
 }
 .today {
   background-color: rgb(83, 129, 229);

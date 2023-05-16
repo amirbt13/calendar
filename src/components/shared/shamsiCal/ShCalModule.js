@@ -15,8 +15,10 @@ const ShCalModule = ({ date, months, startEnd, setStartEnd, orgDate }) => {
 
   // creating days of the last month wich will be shown before 1st of this month
   let lastMonthDays = [];
-  for (let i = firstSatOfMonth.saturday.jd; i <= lastMonthsDaysNum; i++) {
-    lastMonthDays.push(i);
+  if (firstSatOfMonth.saturday.jd !== 1) {
+    for (let i = firstSatOfMonth.saturday.jd; i <= lastMonthsDaysNum; i++) {
+      lastMonthDays.push(i);
+    }
   }
 
   // creating days of this month
