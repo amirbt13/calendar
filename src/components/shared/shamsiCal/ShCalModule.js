@@ -6,16 +6,20 @@ import { isBetween } from "../functions";
 
 const ShCalModule = ({ date, months, startEnd, setStartEnd, orgDate }) => {
   const [days, setDays] = useState([]);
+  // calculating how many days this month have
   const thisMonthsDaysNum = jalaali.jalaaliMonthLength(date.jy, date.jm);
+  // calculating how many days previous month have
   const lastMonthsDaysNum = jalaali.jalaaliMonthLength(date.jy, date.jm - 1);
-  // console.log(thisMonthsDaysNum);
+  // return first Saturday of this month
   const firstSatOfMonth = jalaali.jalaaliWeek(date.jy, date.jm, 1);
-  // console.log(firstSatOfMonth);
+
+  // creating days of the last month wich will be shown before 1st of this month
   let lastMonthDays = [];
   for (let i = firstSatOfMonth.saturday.jd; i <= lastMonthsDaysNum; i++) {
     lastMonthDays.push(i);
   }
-  // console.log(lastMonthDays);
+
+  // creating days of this month
   let thisMonthsDays = [];
   for (let i = 1; i <= thisMonthsDaysNum; i++) {
     thisMonthsDays.push({
@@ -37,12 +41,12 @@ const ShCalModule = ({ date, months, startEnd, setStartEnd, orgDate }) => {
           : false,
     });
   }
-
+  // when month change thisMonthsDays will create and will be set into Days state
   useEffect(() => {
     setDays([...thisMonthsDays]);
     // eslint-disable-next-line
   }, [date.jm]);
-  // console.log(days);
+
   return (
     <div className={styles.days}>
       <div className={styles.month}>

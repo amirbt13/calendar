@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+// css
 import styles from "./ShamsiCalendar.module.css";
-import jalaali from "jalaali-js";
+// components
 import ShCalModule from "../shared/shamsiCal/ShCalModule";
+// jalaali-js library
+import jalaali from "jalaali-js";
 
 const ShamsiCalendar = ({ date, setDate, startEnd, setStartEnd }) => {
   const [thisMonth, setThisMonth] = useState(jalaali.toJalaali(date));

@@ -1,9 +1,10 @@
 import { useState } from "react";
+// css
 import "./App.css";
+// components
 import Calendar from "./components/calendar/Calendar";
 import Head from "./components/head/Head";
 import Foot from "./components/foot/Foot";
-
 import ShamsiCalendar from "./components/shamsiCal/ShamsiCalendar";
 
 function App() {

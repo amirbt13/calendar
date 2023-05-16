@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+// css
 import styles from "./Calendar.module.css";
+// components
 import CalModule from "../shared/calendar/CalModule";
 
 const Calendar = ({ date, setDate, startEnd, setStartEnd }) => {

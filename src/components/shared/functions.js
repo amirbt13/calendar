@@ -18,6 +18,9 @@ export function isBetween(date, startDate, endDate) {
   }
   return false;
 }
+
+// Check if a date is StartDate
+
 export function isStart(date, startDate) {
   if (startDate) {
     return date.getTime() === startDate.getTime();

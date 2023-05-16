@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
+// css
 import styles from "./CalModule.module.css";
+// helper functions
 import { isAfter, isBefore, isBetween, isStart } from "../functions.js";
 
 const Day = ({ day, days, setDays, startEnd, setStartEnd }) => {
   const { dayNum, today, selected, fullDate } = day;
   const { start, end } = startEnd;
   const changeDay = () => {
+    // selecting days logic
     if (!start) {
       setStartEnd({ ...startEnd, start: fullDate });
     } else if (!end && isAfter(fullDate, start)) {
@@ -17,6 +20,7 @@ const Day = ({ day, days, setDays, startEnd, setStartEnd }) => {
     }
   };
   useEffect(() => {
+    // when you select date all the days between that range will be selected: true
     let newDays = days.map((item) => {
       if (
         isBetween(item.fullDate, start, end) ||
