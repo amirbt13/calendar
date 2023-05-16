@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "./Head.module.css";
 
-const Head = ({ setDate, calType, setCalType }) => {
+const Head = ({ setDate, calType, setCalType, startEnd }) => {
   const setToday = () => {
     setDate(new Date());
   };
   const changeType = () => {
     setCalType({ shamsi: !calType.shamsi, miladi: !calType.miladi });
+    if (startEnd.start) {
+      setDate(startEnd.start);
+    }
   };
   return (
     <div className={styles.container}>
